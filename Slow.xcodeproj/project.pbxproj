@@ -202,6 +202,7 @@
 				TargetAttributes = {
 					BBE9DF9A1E792BCF005E2E43 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GT6CEXGDKZ;
 						ProvisioningStyle = Automatic;
 					};
 					BBE9DFB41E792BD0005E2E43 = {
@@ -424,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GT6CEXGDKZ;
 				INFOPLIST_FILE = Slow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suicidecanwait.Slow;
@@ -436,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GT6CEXGDKZ;
 				INFOPLIST_FILE = Slow/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suicidecanwait.Slow;
