@@ -17,6 +17,7 @@
 		BBE9DFAF1E792BCF005E2E43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE9DFAD1E792BCF005E2E43 /* LaunchScreen.storyboard */; };
 		BBE9DFBA1E792BD0005E2E43 /* SlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE9DFB91E792BD0005E2E43 /* SlowTests.swift */; };
 		BBE9DFC51E792BD0005E2E43 /* SlowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE9DFC41E792BD0005E2E43 /* SlowUITests.swift */; };
+		BBE9DFD31E79301E005E2E43 /* BasicBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE9DFD21E79301E005E2E43 /* BasicBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		BBE9DFC01E792BD0005E2E43 /* SlowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE9DFC41E792BD0005E2E43 /* SlowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlowUITests.swift; sourceTree = "<group>"; };
 		BBE9DFC61E792BD0005E2E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBE9DFD21E79301E005E2E43 /* BasicBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		BBE9DF9D1E792BCF005E2E43 /* Slow */ = {
 			isa = PBXGroup;
 			children = (
+				BBE9DFD41E793028005E2E43 /* Model */,
 				BBE9DF9E1E792BCF005E2E43 /* AppDelegate.swift */,
 				BBE9DFA01E792BCF005E2E43 /* GameScene.sks */,
 				BBE9DFA21E792BCF005E2E43 /* Actions.sks */,
@@ -132,6 +135,14 @@
 				BBE9DFC61E792BD0005E2E43 /* Info.plist */,
 			);
 			path = SlowUITests;
+			sourceTree = "<group>";
+		};
+		BBE9DFD41E793028005E2E43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BBE9DFD21E79301E005E2E43 /* BasicBoard.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBE9DFA51E792BCF005E2E43 /* GameScene.swift in Sources */,
+				BBE9DFD31E79301E005E2E43 /* BasicBoard.swift in Sources */,
 				BBE9DFA71E792BCF005E2E43 /* GameViewController.swift in Sources */,
 				BBE9DF9F1E792BCF005E2E43 /* AppDelegate.swift in Sources */,
 			);
