@@ -3,19 +3,6 @@
 
 import Foundation
 
-//These two enum declaration needs to be moved to level control class declaration file
-enum BasicBoardStateEnum{
-    case hasAreaSelected
-    case waitingForUserInput
-    case levelEnded
-}
-
-enum UserInput {
-    case UnitSelection ((Int,Int))
-    case ToolSelection
-    case MenuSelection
-}
-
 protocol BoardStateChangeDelegate: class {
     func changeBoardStateTo(changeStateTo state: BasicBoardStateEnum)
 }

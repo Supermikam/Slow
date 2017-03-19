@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB8612B21E7E80E200DBAC44 /* ClassicGameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8612B11E7E80E200DBAC44 /* ClassicGameMode.swift */; };
 		BBE9DF9F1E792BCF005E2E43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE9DF9E1E792BCF005E2E43 /* AppDelegate.swift */; };
 		BBE9DFA11E792BCF005E2E43 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBE9DFA01E792BCF005E2E43 /* GameScene.sks */; };
 		BBE9DFA31E792BCF005E2E43 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBE9DFA21E792BCF005E2E43 /* Actions.sks */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB8612B11E7E80E200DBAC44 /* ClassicGameMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicGameMode.swift; sourceTree = "<group>"; };
 		BBE9DF9B1E792BCF005E2E43 /* Slow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE9DF9E1E792BCF005E2E43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBE9DFA01E792BCF005E2E43 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				BBE9DFD21E79301E005E2E43 /* BasicBoard.swift */,
+				BB8612B11E7E80E200DBAC44 /* ClassicGameMode.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBE9DFA51E792BCF005E2E43 /* GameScene.swift in Sources */,
+				BB8612B21E7E80E200DBAC44 /* ClassicGameMode.swift in Sources */,
 				BBE9DFD31E79301E005E2E43 /* BasicBoard.swift in Sources */,
 				BBE9DFA71E792BCF005E2E43 /* GameViewController.swift in Sources */,
 				BBE9DF9F1E792BCF005E2E43 /* AppDelegate.swift in Sources */,
@@ -532,6 +536,7 @@
 				BBE9DFCB1E792BD0005E2E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE9DFCC1E792BD0005E2E43 /* Build configuration list for PBXNativeTarget "SlowTests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +545,7 @@
 				BBE9DFCE1E792BD0005E2E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE9DFCF1E792BD0005E2E43 /* Build configuration list for PBXNativeTarget "SlowUITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +554,7 @@
 				BBE9DFD11E792BD0005E2E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
