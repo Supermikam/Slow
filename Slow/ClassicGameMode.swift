@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BasicBoardStateEnum{
+enum BasicBoardState{
     case hasAreaSelected
     case waitingForUserInput
     case levelEnded
@@ -22,7 +22,7 @@ enum UserInput {
 }
 
 
-class ClassicGameMode: BoardStateChangeDelegate{
+class ClassicGameMode {
     
     //MARK: Property
     let finalLevel : Int = 20
@@ -39,9 +39,8 @@ class ClassicGameMode: BoardStateChangeDelegate{
     var selectionScore : Int = 0
     var numOfUnitsSelected: Int = 0
     var gameBoard : BasicBoard
-    var boardState: BasicBoardStateEnum = .waitingForUserInput
-    var waitingForUserInput = WaitingForUserInput()
-    var hasAreaSelected = HasAreaSelected()
+    var boardState: BasicBoardState {didSet{if oldValue == .levelEnded{ levelEnded()}}}
+            
     var userInput : UserInput?
     
     
@@ -50,26 +49,82 @@ class ClassicGameMode: BoardStateChangeDelegate{
     init(){
         levelTarget = targetDic[0]
         gameBoard = BasicBoard(column: 10, row: 10, numOfTypes: 5)
-        gameBoard.boardState = waitingForUserInput
+        boardState = .waitingForUserInput
+
     }
     
     //MARK: API
-    func changeBoardStateTo(changeStateTo state: BasicBoardStateEnum){
-        switch state{
-        case .hasAreaSelected:
-            gameBoard.boardState = hasAreaSelected
-            numOfUnitsSelected = gameBoard.countOfSelectedArea
-            calculateSelectionScore()
-            
-        case .waitingForUserInput:
-            gameBoard.boardState = waitingForUserInput
-            
-        case .levelEnded:
-            break
+    
+    
+    
+    //MARK: State Function
+    
+    func waitingForUserInputState(input:UserInput) {
+        if case .UnitSelection(let position) = input {
+            if gameBoard.isValidSelectionAtIndex(position){
+                gameBoard.selectUnitsTriggeredAtIndex(position)
+                numOfUnitsSelected = gameBoard.countOfSelectedArea
+                calculateSelectionScore()
+                boardState = .hasAreaSelected
+            }
         }
     }
     
+    func hasAreaSelectedState(input: UserInput) {
+        if case .UnitSelection(let position) = input{
+            if (gameBoard.selection.contains{$0 == position}){
+                gameBoard.removeUnitsFromBoard()
+                levelScore += selectionScore
+                currentScore += selectionScore
+                selectionScore = 0
+                numOfUnitsSelected = 0
+                if gameBoard.hasActiveUnitsInBoard(){boardState = .waitingForUserInput}else{boardState = .levelEnded}
+            }else{
+                selectionScore = 0
+                numOfUnitsSelected = 0
+                gameBoard.cancelSelection()
+                boardState = .waitingForUserInput
+            }
+        }
+    }
+    
+    func levelEnded(){
+        calculateClearBoardScore()
+        levelScore += clearBoardScore
+        clearBoardScore += clearBoardScore
+        if currentScore >= levelTarget{
+            if currentLevel < finalLevel{
+                currentLevel += 1
+                levelTarget = targetDic[currentLevel]
+                levelScore = 0
+                gameBoard.setMatrix()
+            }else{
+                // Player Cleared classicMode
+            }
+            
+        }else{
+            //gameOver
+        }
+        
+        
+    }
+    
+    
+    
     //MARK: Helper Function
+   
+    
+    func calculateClearBoardScore(){
+        let numOfUnitsLeft = gameBoard.countOfBoard
+        switch numOfUnitsLeft{
+        case 0...14:
+            clearBoardScore = clearBoardScoreDic[numOfUnitsLeft]
+        default:
+            clearBoardScore = 0
+        }
+        
+    }
+    
     func calculateSelectionScore(){
         var score : Int
         let base = numOfUnitsSelected * numOfUnitsSelected

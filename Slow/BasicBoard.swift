@@ -3,46 +3,6 @@
 
 import Foundation
 
-protocol BoardStateChangeDelegate: class {
-    func changeBoardStateTo(changeStateTo state: BasicBoardStateEnum)
-}
-
-protocol BasicBoardState : class{
-    func handleUserInput(board: BasicBoard, input: UserInput)
-}
-
-class WaitingForUserInput: BasicBoardState{
-    weak var stateChangeDelegate: BoardStateChangeDelegate?
-    func handleUserInput(board: BasicBoard, input: UserInput) {
-        if case .UnitSelection(let position) = input {
-            if board.isValidSelectionAtIndex(position){
-                board.selectUnitsTriggeredAtIndex(position)
-                stateChangeDelegate?.changeBoardStateTo(changeStateTo: .hasAreaSelected)
-            }
-        }
-    }
-}
-
-class HasAreaSelected: BasicBoardState{
-    weak var stateChangeDelegate: BoardStateChangeDelegate?
-    internal func handleUserInput(board: BasicBoard, input: UserInput) {
-        if case .UnitSelection(let position) = input{
-            if (board.selection.contains{$0 == position}){
-                board.removeUnitsFromBoard()
-                if board.hasActiveUnitsInBoard(){
-                    stateChangeDelegate?.changeBoardStateTo(changeStateTo: .waitingForUserInput)
-                }else{
-                    stateChangeDelegate?.changeBoardStateTo(changeStateTo: .levelEnded)
-                }
-            }else{
-                stateChangeDelegate?.changeBoardStateTo(changeStateTo: .waitingForUserInput)
-                // need something here to pass the UserInput to the new state to handle
-            }
-        }
-       
-    }
-}
-
 class BasicBoard {
     
     // MARK: Typealias
@@ -58,8 +18,6 @@ class BasicBoard {
     var numOfTypes : Int
     // matrix stores the map
     var matrix = MatrixArray()
-    
-    weak var boardState : BasicBoardState?
     
     // selection stores what area of the map has been selected
     var selection = SelectionArray()
